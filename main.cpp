@@ -3,27 +3,47 @@
 
 using namespace std;
 
-int main() {
-    cout << "RPG player system.\n";
-
-    string charName = "Aurthor";
-
-    int hp = 100;
-    int level = 1;
-
-    float baseDamage = 14.5f;
-    double critMultiplier = 1.5;
-
-    bool isAlive = true;
-
+class Character {
+private:
+    string name;
+    int hp;
+    int level;
+    float baseDamage;
+    double critMultiplier;
+    bool isAlive;
     const int MAX_LEVEL = 99;
 
-    cout << "--- Character Sheet ---" << std::endl;
-    cout << "Name:   " << charName << std::endl;
-    cout << "Level:  " << level << " (Max: " << MAX_LEVEL << ")" << std::endl;
-    cout << "HP:     " << hp << std::endl;
-    cout << "Damage: " << baseDamage << std::endl;
-    cout << "Alive:  " << isAlive << std::endl;
+public:
+    Character(string charName, int startingHP, float startingDamge){
+        // constructor assigned values
+        name = charName;
+        hp = startingHP;
+        baseDamage = startingDamge;
+
+        // defualt values
+        level = 1;
+        double critMultiplier = 1.5;
+        bool isAlive = true;
+    }
+
+    void printSheet(){
+        cout << "--- Character Sheet ---" << endl;
+        cout << "Name:   " << name << endl;
+        cout << "Level:  " << level << " (Max: " << MAX_LEVEL << ")" << endl;
+        cout << "HP:     " << hp << endl;
+        cout << "Damage: " << baseDamage << endl;
+        cout << "Alive:  " << isAlive << endl;
+    }
+};
+
+int main() {
+cout << "RPG player system initializing...\n";
+
+    // Instantiate an object
+    Character hero("Arthur", 100, 14.5f);
+    
+    // Call the public method
+    hero.printSheet();
 
     return 0;
 }
