@@ -14,16 +14,16 @@ private:
     const int MAX_LEVEL = 99;
 
 public:
-    Character(string charName, int startingHP, float startingDamge){
+    Character(string charName, int hp, float startingDamge){
         // constructor assigned values
         name = charName;
-        hp = startingHP;
+        this->hp = hp;      // how to use this pointer when there is a name collision (could also just use different name)
         baseDamage = startingDamge;
 
         // defualt values
         level = 1;
-        double critMultiplier = 1.5;
-        bool isAlive = true;
+        critMultiplier = 1.5;
+        isAlive = true;
     }
 
     void printSheet(){
@@ -34,15 +34,51 @@ public:
         cout << "Damage: " << baseDamage << endl;
         cout << "Alive:  " << isAlive << endl;
     }
+    
+    string getName(){
+        return name;
+    }
+
+    bool checkIsAlive(){
+        return isAlive;
+    }
+
+    void takeDamage(int damageAmount){
+        if(!isAlive){
+            cout << name << " is already dead!" << endl;
+            return;
+        }
+
+        hp -= damageAmount;
+
+        if (hp <= 0){
+            isAlive = false;
+            hp = 0;
+            cout << name << " took " << damageAmount << " amount of damage and now is dead" << endl;
+        }
+        else{
+        cout << name << " took " << damageAmount << " amount of damage and has " << hp << "hp left." << endl;
+        }
+
+        
+    }
+
 };
 
 int main() {
-cout << "RPG player system initializing...\n";
-
-    // Instantiate an object
     Character hero("Arthur", 100, 14.5f);
     
-    // Call the public method
+    // Using the getter to read the private name
+    cout << "A wild goblin attacks " << hero.getName() << "!\n" << endl;
+
+    hero.printSheet();
+
+    // Simulating combat
+    hero.takeDamage(40);
+    hero.takeDamage(70);
+    hero.takeDamage(10); // Trying to attack after death
+
+    cout << "\nPost-Battle Status:" << endl;
     hero.printSheet();
 
     return 0;
