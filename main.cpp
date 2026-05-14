@@ -5,6 +5,7 @@ using namespace std;
 
 class Character {
 private:
+    // memebers 
     string name;
     int hp;
     int level;
@@ -59,9 +60,20 @@ public:
         else{
         cout << name << " took " << damageAmount << " amount of damage and has " << hp << "hp left." << endl;
         }
-
-        
     }
+
+    void heal(int healAmount){
+        if (!isAlive){
+            cout << name << " is too dead to be heald." << endl;
+            return;    
+        }
+
+        hp += healAmount;
+        cout << name << " was healed " << healAmount << " and now has " << hp << "hp" << endl;
+
+        return;
+        }
+    
 
 };
 
@@ -76,7 +88,7 @@ int main() {
     // Simulating combat
     hero.takeDamage(40);
     hero.takeDamage(70);
-    hero.takeDamage(10); // Trying to attack after death
+    hero.takeDamage(10);
 
     cout << "\nPost-Battle Status:" << endl;
     hero.printSheet();
