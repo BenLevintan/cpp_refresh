@@ -7,11 +7,10 @@ class Character {
 private:
     // memebers 
     string name;
-    int hp;
-    int level;
+    int hp, level;
     float baseDamage;
     double critMultiplier;
-    bool isAlive;
+    bool isAlive, isFleeing;
     const int MAX_LEVEL = 99;
 
 public:
@@ -25,6 +24,7 @@ public:
         level = 1;
         critMultiplier = 1.5;
         isAlive = true;
+        isFleeing = false;
     }
 
     void printSheet(){
@@ -42,6 +42,10 @@ public:
 
     bool checkIsAlive(){
         return isAlive;
+    }
+
+    bool checkIsFleeing(){
+        return isFleeing;
     }
 
     void takeDamage(int damageAmount){
@@ -79,6 +83,12 @@ public:
 
         return;
         }
+
+    void flee(){
+        isFleeing = true;
+        cout << "byebye" << endl;
+        return;
+    }
     
 
 };
@@ -106,13 +116,15 @@ int main() {
             break;
 
         case 3:
+            hero.flee();
             break;
         
         default:
+            cout << "Invalid choice." << endl;
             break;
         }
 
-    }while (hero.checkIsAlive() == true);
+    }while (hero.checkIsAlive() == true and hero.checkIsFleeing() == false);
   
     
 
