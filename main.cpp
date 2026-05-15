@@ -73,25 +73,48 @@ public:
 
         return;
         }
+
+    void attack(){
+        cout << name << " dealed " << "startingDamge" << " amount of damage" << endl;
+
+        return;
+        }
     
 
 };
 
 int main() {
     Character hero("Arthur", 100, 14.5f);
+    int choice = 0;
+    bool isFleeing = false;
+    int healAmount = 0;
     
-    // Using the getter to read the private name
-    cout << "A wild goblin attacks " << hero.getName() << "!\n" << endl;
+    do{
+        cout << "what is you next move?\n1. attack\n2. heal\n3. flee" << endl;
+        cin >> choice;
 
-    hero.printSheet();
+        switch (choice)
+        {
+        case 1:
+            hero.attack();
+            break;
 
-    // Simulating combat
-    hero.takeDamage(40);
-    hero.takeDamage(70);
-    hero.takeDamage(10);
+        case 2:
+            cout << "How much would " << hero.getName() << " heal?" << endl;
+            cin >> healAmount;
+            hero.heal(healAmount);
+            break;
 
-    cout << "\nPost-Battle Status:" << endl;
-    hero.printSheet();
+        case 3:
+            break;
+        
+        default:
+            break;
+        }
+
+    }while (hero.checkIsAlive() == true);
+  
+    
 
     return 0;
 }
