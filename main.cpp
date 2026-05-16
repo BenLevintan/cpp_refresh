@@ -123,7 +123,7 @@ int main() {
             break;
         }
 
-    }while (hero.checkIsAlive() == true and hero.checkIsFleeing() == false);
+    }while (hero.checkIsAlive() && !hero.checkIsFleeing());
   
     
 
