@@ -96,7 +96,6 @@ public:
 int main() {
     Character hero("Arthur", 100, 14.5f);
     int choice = 0;
-    bool isFleeing = false;
     int healAmount = 0;
     
     do{
