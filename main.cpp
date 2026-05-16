@@ -68,26 +68,20 @@ public:
 
     void heal(int healAmount){
         if (!isAlive){
-            cout << name << " is too dead to be heald." << endl;
-            return;    
+            cout << name << " is too dead to be heald." << endl;  
         }
 
         hp += healAmount;
         cout << name << " was healed " << healAmount << " and now has " << hp << "hp" << endl;
-
-        return;
         }
 
     void attack(){
         cout << name << " dealed " << "startingDamge" << " amount of damage" << endl;
-
-        return;
         }
 
     void flee(){
         isFleeing = true;
         cout << "byebye" << endl;
-        return;
     }
     
 
