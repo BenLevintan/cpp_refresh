@@ -76,7 +76,7 @@ public:
         }
 
     void attack(){
-        cout << name << " dealed " << "startingDamge" << " amount of damage" << endl;
+        cout << name << " dealed " << baseDamage << " amount of damage" << endl;
         }
 
     void flee(){
