@@ -118,6 +118,10 @@ int main() {
         }
 
     }while (hero.checkIsAlive() && !hero.checkIsFleeing());
+
+    if (!hero.checkIsAlive()){
+        cout << "Game Over." << endl;
+    }
   
     
 
