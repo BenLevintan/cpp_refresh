@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
 class Character {
-private:
+protected:
     // memebers 
     string name;
     int hp, level;
@@ -28,17 +29,10 @@ public:
     }
 
     void printSheet(){
-        cout << "--- Character Sheet ---" << endl;
-        cout << "Name:   " << name << endl;
-        cout << "Level:  " << level << " (Max: " << MAX_LEVEL << ")" << endl;
-        cout << "HP:     " << hp << endl;
-        cout << "Damage: " << baseDamage << endl;
-        cout << "Alive:  " << isAlive << endl;
+        cout << name << " | HP: " << hp << " | DMG: " << baseDamage << endl;
     }
     
-    string getName(){
-        return name;
-    }
+    string getName(){return name;}
 
     bool checkIsAlive(){
         return isAlive;
@@ -83,7 +77,15 @@ public:
         isFleeing = true;
         cout << "byebye" << endl;
     }
-    
+};
+
+class Mage : public Character{
+    private:
+        int mana;
+
+    Mage(string charName, int hp, float startingDamge, int startingMana) : Character(charName, hp, startingDamge){
+        mana = startingMana; 
+    }
 
 };
 
