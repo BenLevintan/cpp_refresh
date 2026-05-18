@@ -87,6 +87,16 @@ class Mage : public Character{
         mana = startingMana; 
     }
 
+
+    void castSpell(){
+        if (mana >= 10) {
+            cout << name << " casts Fireball for " << (baseDamage * 2.0f) << " damage!" << endl;
+            mana -= 10;
+            cout << "Remaining Mana: " << mana << endl;
+        } else {
+            cout << name << " is out of mana!" << endl;
+        }
+    }
 };
 
 int main() {
