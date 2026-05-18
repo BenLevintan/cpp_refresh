@@ -83,6 +83,8 @@ class Mage : public Character{
     private:
         int mana;
 
+    public:
+
     Mage(string charName, int hp, float startingDamge, int startingMana) : Character(charName, hp, startingDamge){
         mana = startingMana; 
     }
@@ -103,6 +105,18 @@ int main() {
     Character hero("Arthur", 100, 14.5f);
     int choice = 0;
     int healAmount = 0;
+
+    // 1. Create a Mage instead of a base Character
+    Mage herob("Merlin", 80, 10.5f, 50);
+    
+    // 2. The Mage can use methods inherited from Character
+    hero.printSheet(); 
+    
+    // 3. The Mage can use its own unique methods
+    herob.castSpell();
+    herob.castSpell();
+
+    return 0;
     
     do{
         cout << "what is you next move?\n1. attack\n2. heal\n3. flee" << endl;
