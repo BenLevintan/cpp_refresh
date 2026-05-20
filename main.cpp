@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Character.h" // Quotes mean "look in my current folder for this file"
+#include "Character.h"
 
 using namespace std;
 
